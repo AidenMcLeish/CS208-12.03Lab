@@ -1,7 +1,8 @@
 # CS208 Full Stack Project - To-Do List
-Name: Aiden McLeish
-GitHub: https://github.com/AidenMcLeish/CS208-12.03Lab
-Term: Spring 2026
+
+- Name: Aiden McLeish
+- GitHub: https://github.com/AidenMcLeish/CS208-12.03Lab
+- Term: Spring 2026
 
 ## Project Description  
 This project is a full-stack application that allows the user to create, edit, complete, and delete tasks from a To-Do List. It is built using Node.js, Express/Pug, CSS, and MariaDB.
