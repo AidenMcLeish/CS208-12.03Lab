@@ -1,8 +1,38 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 18px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+input[type="text"]{
+  width:300px;
+  height:25px;
+  font-size:15px;
+}
+
+li form{
+  display: inline;
 }
 
 a {
   color: #00B7FF;
+}
+.editbtn{
+  height: 30px;
+  width: 100px;
+  background-color: lightgoldenrodyellow;
+  font-size: 15px;
+}
+.createbtn{
+  height: 30px;
+  width: 100px;
+  background-color: lightblue;
+  font-size: 15px;
+}
+.deletebtn{
+  height: 30px;
+  width: 100px;
+  background-color: salmon;
+  font-size: 15px;
+}
+.completedbtn{
+  background-color: white;
 }

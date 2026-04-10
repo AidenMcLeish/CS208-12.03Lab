@@ -9,7 +9,7 @@ router.get('/', function(req, res, next){
         console.error('Error fetching todos:', err);
         return res.status(500).send('Error fetching todos');
       }
-      res.render('index', { title: 'My Simple TODO', todos: results });
+      res.render('index', { title: 'My Simple To-Do', todos: results });
     });
   } catch (error) {
     console.error('Error fetching items:', error);
@@ -35,6 +35,44 @@ router.post('/create', function (req, res, next) {
     }
 });
 
+router.post('/update', function (req, res, next) {
+    const { task } = req.body;
+    const id = req.body.id;
+    try {
+      req.db.query('UPDATE todos SET task=? WHERE id =?;', [task,id], (err, results) => {
+        if (err) {
+          console.error('Error editing todo:', err);
+          return res.status(500).send('Error editing todo');
+        }
+        console.log('Todo edited successfully:', results);
+        // Redirect to the home page after adding
+        res.redirect('/');
+      });
+    } catch (error) {
+      console.error('Error editing todo:', error);
+      res.status(500).send('Error editing todo');
+    }
+});
+
+router.post('/updatebtn', function (req, res, next) {
+  const id = req.body.id;
+    try {
+      req.db.query('UPDATE todos SET completed=1 WHERE id =?;',[id], (err, results) => {
+        if (err) {
+          console.error('Error editing todo:', err)
+          return res.status(500).send('Error editing todo');
+        }
+        console.log('Todo edited successfully:', results);
+        // Redirect to the home page after adding
+        res.redirect('/');
+      });
+    } catch (error) {
+      console.error('Error editing todo:', error);
+      res.status(500).send('Error editing todo');
+    }
+});
+
+
 router.post('/delete', function (req, res, next) {
     const { id } = req.body;
     try {
@@ -53,4 +91,7 @@ router.post('/delete', function (req, res, next) {
     }
 });
 
+
+
 module.exports = router;
+
